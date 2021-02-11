@@ -1,0 +1,8 @@
+[book]
+title = "Nuo Lang"
+description = ""
+authors = ["Andrew Rothman"]
+language = "en"
+
+[output.html]
+site-url = "/www/"
