@@ -5,3 +5,4 @@
 - [if / else / else if](if.md)
 - [Looping](looping.md)
 - [Functions](functions.md)
+- [enum](enum.md)
