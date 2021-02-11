@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if </a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">4.</strong> Functions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if</a></li><li class="chapter-item expanded "><a href="looping.html"><strong aria-hidden="true">4.</strong> Looping</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -245,6 +245,53 @@ else {
 stdout.write_line(message);
 
 // -&gt; &quot;Message 2&quot;
+</code></pre>
+<h1><a class="header" href="#looping" id="looping">Looping</a></h1>
+<h2><a class="header" href="#infinite" id="infinite">Infinite</a></h2>
+<pre><code>loop {
+    stdout.write_line(&quot;Keeps going.&quot;);
+}
+</code></pre>
+<h2><a class="header" href="#generators" id="generators">Generators</a></h2>
+<p>Arrays are a type of finite generator.</p>
+<pre><code>const friends = [&quot;Bob&quot;, &quot;Alice&quot;, &quot;Sally&quot;];
+
+loop friend of friends {
+    stdout.write_line(`I have a friend named {friend}.`);
+}
+</code></pre>
+<p>Any range between two i64 or u64 values is also a finite generator. Ranges are denoted using the <code>..</code> operator (&quot;range operator&quot;).</p>
+<pre><code>loop 0 .. 5 {
+    stdout.write_line(&quot;Hi.&quot;);
+}
+
+loop num of 0 .. 5 {
+    stdout.write_line(`num: {num}`);
+}
+</code></pre>
+<h2><a class="header" href="#conditions" id="conditions">Conditions</a></h2>
+<p>You can also specify a condition while looping. The condition will be evaluated before each iteration, and the loop will stop when the condition evaluates to <code>false</code>.</p>
+<pre><code>const start = time.now();
+const end = start.add_minutes(5);
+
+var iterations = 0;
+
+loop start &lt; end {
+    iterations++;
+};
+
+stdout.println(iterations);
+</code></pre>
+<h2><a class="header" href="#expression" id="expression">Expression</a></h2>
+<pre><code>const friends = [&quot;Bob&quot;, &quot;Alice&quot;, &quot;Sally&quot;];
+
+const firstAName = loop friend of friends {
+    if friend.startsWith(&quot;A&quot;) {
+        return friend;
+    }
+}
+
+stdout.println(`My first friend whose name starts with an A is {firstAName}`);
 </code></pre>
 <h1><a class="header" href="#functions" id="functions">Functions</a></h1>
 <p>Functions are like snippets of code. We provide many with Nuo, and you can find more online.</p>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>if / else / else if - Nuo Lang</title>
+        <title>Looping - Nuo Lang</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html" class="active"><strong aria-hidden="true">3.</strong> if / else / else if</a></li><li class="chapter-item expanded "><a href="looping.html"><strong aria-hidden="true">4.</strong> Looping</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if</a></li><li class="chapter-item expanded "><a href="looping.html" class="active"><strong aria-hidden="true">4.</strong> Looping</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,43 +163,52 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#if--else--else-if" id="if--else--else-if">if / else / else if</a></h1>
-<pre><code>if true {
-    stdout.write_line(&quot;This will show up.&quot;);
+                        <h1><a class="header" href="#looping" id="looping">Looping</a></h1>
+<h2><a class="header" href="#infinite" id="infinite">Infinite</a></h2>
+<pre><code>loop {
+    stdout.write_line(&quot;Keeps going.&quot;);
 }
 </code></pre>
-<pre><code>if false {
-    stdout.write_line(&quot;This won't show up.&quot;);
-} else {
-    stdout.write_line(&quot;This won't show up.&quot;);
+<h2><a class="header" href="#generators" id="generators">Generators</a></h2>
+<p>Arrays are a type of finite generator.</p>
+<pre><code>const friends = [&quot;Bob&quot;, &quot;Alice&quot;, &quot;Sally&quot;];
+
+loop friend of friends {
+    stdout.write_line(`I have a friend named {friend}.`);
 }
 </code></pre>
-<pre><code>if false {
-    stdout.write_line(&quot;This won't show up.&quot;);
-} else if true {
-    stdout.write_line(&quot;This will show up.&quot;);
-}
-</code></pre>
-<pre><code>if false {
-    stdout.write_line(&quot;This won't show up.&quot;);
-} else if false {
-    stdout.write_line(&quot;This won't show up.&quot;);
-}
-else {
-    stdout.write_line(&quot;This won't show up.&quot;);
-}
-</code></pre>
-<pre><code>const message = if false {
-    &quot;Mesage 1&quot;;
-} else if true {
-    &quot;Mesage 2&quot;;
-} else {
-    &quot;Message 3&quot;;
+<p>Any range between two i64 or u64 values is also a finite generator. Ranges are denoted using the <code>..</code> operator (&quot;range operator&quot;).</p>
+<pre><code>loop 0 .. 5 {
+    stdout.write_line(&quot;Hi.&quot;);
 }
 
-stdout.write_line(message);
+loop num of 0 .. 5 {
+    stdout.write_line(`num: {num}`);
+}
+</code></pre>
+<h2><a class="header" href="#conditions" id="conditions">Conditions</a></h2>
+<p>You can also specify a condition while looping. The condition will be evaluated before each iteration, and the loop will stop when the condition evaluates to <code>false</code>.</p>
+<pre><code>const start = time.now();
+const end = start.add_minutes(5);
 
-// -&gt; &quot;Message 2&quot;
+var iterations = 0;
+
+loop start &lt; end {
+    iterations++;
+};
+
+stdout.println(iterations);
+</code></pre>
+<h2><a class="header" href="#expression" id="expression">Expression</a></h2>
+<pre><code>const friends = [&quot;Bob&quot;, &quot;Alice&quot;, &quot;Sally&quot;];
+
+const firstAName = loop friend of friends {
+    if friend.startsWith(&quot;A&quot;) {
+        return friend;
+    }
+}
+
+stdout.println(`My first friend whose name starts with an A is {firstAName}`);
 </code></pre>
 
                     </main>
@@ -207,13 +216,13 @@ stdout.write_line(message);
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="if.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="looping.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="functions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -225,13 +234,13 @@ stdout.write_line(message);
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="if.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="looping.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="functions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
