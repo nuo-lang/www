@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if</a></li><li class="chapter-item expanded "><a href="looping.html"><strong aria-hidden="true">4.</strong> Looping</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li class="chapter-item expanded "><a href="enum.html"><strong aria-hidden="true">6.</strong> enum</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if</a></li><li class="chapter-item expanded "><a href="looping.html"><strong aria-hidden="true">4.</strong> Looping</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li class="chapter-item expanded "><a href="enum.html"><strong aria-hidden="true">6.</strong> enum</a></li><li class="chapter-item expanded "><a href="struct.html"><strong aria-hidden="true">7.</strong> struct</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -372,6 +372,37 @@ if howIFeel == Emotion.Happy {
     stdout.write_line(&quot;I feel great!&quot;);
 }
 
+</code></pre>
+<h1><a class="header" href="#struct" id="struct">struct</a></h1>
+<h2><a class="header" href="#declare" id="declare">Declare</a></h2>
+<pre><code>type person = struct {
+    name: string,
+    age: u64,
+};
+</code></pre>
+<h2><a class="header" href="#instantiate" id="instantiate">Instantiate</a></h2>
+<pre><code>const p1 = person {
+    name: &quot;Bob&quot;,
+    age: 42,
+};
+
+const p2 = person {
+    name: &quot;Alice&quot;,
+    age: 35,
+};
+
+const p3 = person {
+    name: &quot;Sally&quot;,
+    age: 78,
+};
+
+const print_person = (p: person) {
+    stdout.write_line(`${p.name} is ${p.age} years old.`);
+}
+
+print_person(p1);
+print_person(p2);
+print_person(p3);
 </code></pre>
 
                     </main>

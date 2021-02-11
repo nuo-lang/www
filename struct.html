@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>if / else / else if - Nuo Lang</title>
+        <title>struct - Nuo Lang</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html" class="active"><strong aria-hidden="true">3.</strong> if / else / else if</a></li><li class="chapter-item expanded "><a href="looping.html"><strong aria-hidden="true">4.</strong> Looping</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li class="chapter-item expanded "><a href="enum.html"><strong aria-hidden="true">6.</strong> enum</a></li><li class="chapter-item expanded "><a href="struct.html"><strong aria-hidden="true">7.</strong> struct</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if</a></li><li class="chapter-item expanded "><a href="looping.html"><strong aria-hidden="true">4.</strong> Looping</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li class="chapter-item expanded "><a href="enum.html"><strong aria-hidden="true">6.</strong> enum</a></li><li class="chapter-item expanded "><a href="struct.html" class="active"><strong aria-hidden="true">7.</strong> struct</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,43 +163,36 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#if--else--else-if" id="if--else--else-if">if / else / else if</a></h1>
-<pre><code>if true {
-    stdout.write_line(&quot;This will show up.&quot;);
-}
+                        <h1><a class="header" href="#struct" id="struct">struct</a></h1>
+<h2><a class="header" href="#declare" id="declare">Declare</a></h2>
+<pre><code>type person = struct {
+    name: string,
+    age: u64,
+};
 </code></pre>
-<pre><code>if false {
-    stdout.write_line(&quot;This won't show up.&quot;);
-} else {
-    stdout.write_line(&quot;This won't show up.&quot;);
-}
-</code></pre>
-<pre><code>if false {
-    stdout.write_line(&quot;This won't show up.&quot;);
-} else if true {
-    stdout.write_line(&quot;This will show up.&quot;);
-}
-</code></pre>
-<pre><code>if false {
-    stdout.write_line(&quot;This won't show up.&quot;);
-} else if false {
-    stdout.write_line(&quot;This won't show up.&quot;);
-}
-else {
-    stdout.write_line(&quot;This won't show up.&quot;);
-}
-</code></pre>
-<pre><code>const message = if false {
-    &quot;Mesage 1&quot;;
-} else if true {
-    &quot;Mesage 2&quot;;
-} else {
-    &quot;Message 3&quot;;
+<h2><a class="header" href="#instantiate" id="instantiate">Instantiate</a></h2>
+<pre><code>const p1 = person {
+    name: &quot;Bob&quot;,
+    age: 42,
+};
+
+const p2 = person {
+    name: &quot;Alice&quot;,
+    age: 35,
+};
+
+const p3 = person {
+    name: &quot;Sally&quot;,
+    age: 78,
+};
+
+const print_person = (p: person) {
+    stdout.write_line(`${p.name} is ${p.age} years old.`);
 }
 
-stdout.write_line(message);
-
-// -&gt; &quot;Message 2&quot;
+print_person(p1);
+print_person(p2);
+print_person(p3);
 </code></pre>
 
                     </main>
@@ -207,15 +200,11 @@ stdout.write_line(message);
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="enum.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="looping.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -225,15 +214,11 @@ stdout.write_line(message);
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="enum.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a rel="next" href="looping.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
