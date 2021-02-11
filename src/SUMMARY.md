@@ -6,3 +6,4 @@
 - [Looping](looping.md)
 - [Functions](functions.md)
 - [enum](enum.md)
+- [struct](struct.md)
