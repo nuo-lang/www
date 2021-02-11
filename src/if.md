@@ -1,4 +1,4 @@
-# if / else / elseif
+# if / else / else if
 
 ```
 if true {
