@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if</a></li><li class="chapter-item expanded "><a href="looping.html"><strong aria-hidden="true">4.</strong> Looping</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if</a></li><li class="chapter-item expanded "><a href="looping.html"><strong aria-hidden="true">4.</strong> Looping</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li class="chapter-item expanded "><a href="enum.html"><strong aria-hidden="true">6.</strong> enum</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -351,6 +351,27 @@ if is_palindrome(&quot;racecar&quot;) {
 if is_palindrome(&quot;nope&quot;) {
     stdout.write_line(&quot;nope is a palindrome!&quot;);
 }
+</code></pre>
+<h1><a class="header" href="#enum" id="enum">enum</a></h1>
+<pre><code>enum Emotion {
+    Happy,
+    Sad,
+    Excited,
+}
+
+var howIFeel = Emotion.Sad;
+
+if howIFeel == Emotion.Sad {
+    stdout.write_line(&quot;I am sad. I will eat an ice cream cone.&quot;);
+    howIFeel = Emotion.Excited;
+    eatTastyIceCream();
+    howIFeel = Emotion.Happy;
+}
+
+if howIFeel == Emotion.Happy {
+    stdout.write_line(&quot;I feel great!&quot;);
+}
+
 </code></pre>
 
                     </main>
