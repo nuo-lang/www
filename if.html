@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Types - Nuo Lang</title>
+        <title>if / else / else if  - Nuo Lang</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html" class="active"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if </a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">4.</strong> Functions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html" class="active"><strong aria-hidden="true">3.</strong> if / else / else if </a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">4.</strong> Functions</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,52 +163,57 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#types" id="types">Types</a></h1>
-<h2><a class="header" href="#declarations" id="declarations">Declarations</a></h2>
-<p>You must first declare a variable or constant before it can be used or reassigned.</p>
-<h3><a class="header" href="#declaring-constants" id="declaring-constants">Declaring constants</a></h3>
-<pre><code>const name = &quot;Bob&quot;;
-var age = 42;
-var is_happy = true;
+                        <h1><a class="header" href="#if--else--elseif" id="if--else--elseif">if / else / elseif</a></h1>
+<pre><code>if true {
+    stdout.write_line(&quot;This will show up.&quot;);
+}
 </code></pre>
-<h3><a class="header" href="#declaring-variables" id="declaring-variables">Declaring variables</a></h3>
-<pre><code>var name = &quot;Bob&quot;;
-var age = 42;
-var is_happy = true;
+<pre><code>if false {
+    stdout.write_line(&quot;This won't show up.&quot;);
+} else {
+    stdout.write_line(&quot;This won't show up.&quot;);
+}
 </code></pre>
-<h3><a class="header" href="#constants-vs-variables" id="constants-vs-variables">Constants vs. Variables</a></h3>
-<p>Variables can be reassigned new values, whereas constants cannot. If you aren't sure, use a constant.</p>
-<h3><a class="header" href="#type-inference" id="type-inference">Type Inference</a></h3>
-<p>The compiler will try to guess the type of your declaration. If you want to be explicit, specify a type:</p>
-<pre><code>// guessed to be u64... if a subtraction later occurs, i64
-var age = 42;
+<pre><code>if false {
+    stdout.write_line(&quot;This won't show up.&quot;);
+} else if true {
+    stdout.write_line(&quot;This will show up.&quot;);
+}
+</code></pre>
+<pre><code>if false {
+    stdout.write_line(&quot;This won't show up.&quot;);
+} else if false {
+    stdout.write_line(&quot;This won't show up.&quot;);
+}
+else {
+    stdout.write_line(&quot;This won't show up.&quot;);
+}
+</code></pre>
+<pre><code>const message = if false {
+    &quot;Mesage 1&quot;;
+} else if true {
+    &quot;Mesage 2&quot;;
+} else {
+    &quot;Message 3&quot;;
+}
 
-// explicitly enforced as u64
-var age: u64 = 42;
+stdout.write_line(message);
+
+// -&gt; &quot;Message 2&quot;
 </code></pre>
-<p>It's currently undecided if constants are also immutable. There's a subtle difference.</p>
-<h2><a class="header" href="#primitive-types" id="primitive-types">Primitive Types</a></h2>
-<p>Nuo's primitive types are:</p>
-<table><thead><tr><th>Type</th><th>Description</th><th>Examples</th></tr></thead><tbody>
-<tr><td><code>bool</code></td><td><code>true</code> or <code>false</code>.</td><td><code>true</code>, <code>false</code></td></tr>
-<tr><td><code>u64</code></td><td>64-bit unsigned integer. Can only represent positive numbers.</td><td>10, 100, 0 (min), 18446744073709551615 (max)</td></tr>
-<tr><td><code>i64</code></td><td>64-bit integer. Can be positive or negative.</td><td>10, 100, -40, 0, -9223372036854775807 (min), 9223372036854775807 (max)</td></tr>
-<tr><td><code>string</code></td><td>Text (represented as UTF-8)</td><td>&quot;hi&quot;, &quot;Hello&quot;, &quot;Emojis are good too 👌&quot;</td></tr>
-</tbody></table>
-<p>All primitive types are immutable.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="if.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="functions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -220,13 +225,13 @@ var age: u64 = 42;
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="if.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="functions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">3.</strong> Functions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="if.html"><strong aria-hidden="true">3.</strong> if / else / else if </a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">4.</strong> Functions</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -208,6 +208,44 @@ var age: u64 = 42;
 <tr><td><code>string</code></td><td>Text (represented as UTF-8)</td><td>&quot;hi&quot;, &quot;Hello&quot;, &quot;Emojis are good too 👌&quot;</td></tr>
 </tbody></table>
 <p>All primitive types are immutable.</p>
+<h1><a class="header" href="#if--else--elseif" id="if--else--elseif">if / else / elseif</a></h1>
+<pre><code>if true {
+    stdout.write_line(&quot;This will show up.&quot;);
+}
+</code></pre>
+<pre><code>if false {
+    stdout.write_line(&quot;This won't show up.&quot;);
+} else {
+    stdout.write_line(&quot;This won't show up.&quot;);
+}
+</code></pre>
+<pre><code>if false {
+    stdout.write_line(&quot;This won't show up.&quot;);
+} else if true {
+    stdout.write_line(&quot;This will show up.&quot;);
+}
+</code></pre>
+<pre><code>if false {
+    stdout.write_line(&quot;This won't show up.&quot;);
+} else if false {
+    stdout.write_line(&quot;This won't show up.&quot;);
+}
+else {
+    stdout.write_line(&quot;This won't show up.&quot;);
+}
+</code></pre>
+<pre><code>const message = if false {
+    &quot;Mesage 1&quot;;
+} else if true {
+    &quot;Mesage 2&quot;;
+} else {
+    &quot;Message 3&quot;;
+}
+
+stdout.write_line(message);
+
+// -&gt; &quot;Message 2&quot;
+</code></pre>
 <h1><a class="header" href="#functions" id="functions">Functions</a></h1>
 <p>Functions are like snippets of code. We provide many with Nuo, and you can find more online.</p>
 <h2><a class="header" href="#example" id="example">Example</a></h2>
