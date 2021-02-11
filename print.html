@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">3.</strong> Functions</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -208,6 +208,65 @@ var age: u64 = 42;
 <tr><td><code>string</code></td><td>Text (represented as UTF-8)</td><td>&quot;hi&quot;, &quot;Hello&quot;, &quot;Emojis are good too 👌&quot;</td></tr>
 </tbody></table>
 <p>All primitive types are immutable.</p>
+<h1><a class="header" href="#functions" id="functions">Functions</a></h1>
+<p>Functions are like snippets of code. We provide many with Nuo, and you can find more online.</p>
+<h2><a class="header" href="#example" id="example">Example</a></h2>
+<pre><code>// this example &quot;calls&quot; the &quot;stdout.write_line&quot; function
+// it passes one input - a string to show in the console
+
+stdout.write_line(&quot;Hello, world! 👋 🌎&quot;);
+</code></pre>
+<h2><a class="header" href="#inputs-and-outputs" id="inputs-and-outputs">Inputs and Outputs</a></h2>
+<p>Functions can take inputs and return outputs.</p>
+<pre><code>// &quot;string.reverse&quot; takes one input (a string), and returns one output (another string)
+// in this example, we assign the output to a constant called &quot;result&quot;
+
+const result = string.reverse(&quot;racecar!&quot;);
+// -&gt; &quot;!racecar&quot;
+
+stdout.write_line(result);
+</code></pre>
+<h2><a class="header" href="#declaring-functions" id="declaring-functions">Declaring Functions</a></h2>
+<p>You can declare your own functions.</p>
+<pre><code>// the &quot;sayHi&quot; function takes no inputs and returns no outputs
+
+const sayHi = () =&gt; {
+    stdout.write_line(&quot;Hello!&quot;);
+};
+
+// say &quot;hi&quot; three times
+
+sayHi();
+sayHi();
+sayHi();
+
+// the &quot;meet&quot; function takes one input (a string for the &quot;name&quot;) and returns no outputs
+
+const meet = (name: string) =&gt; {
+    const message = `Hello, {name}!`; // this is called a template string. we will go over this later.
+    stdout.write_line(message);
+};
+
+// meet a few people
+
+meet(&quot;Alice&quot;);
+meet(&quot;Bob&quot;);
+meet(&quot;Sally&quot;);
+
+// the &quot;is_palindrome&quot; function takes one input (a string) and returns one output (a boolean), which will be &quot;true&quot; if the input string is a palindrome
+
+const is_palindrome = (text: string): bool =&gt; {
+    return text == string.reverse(text);
+};
+
+if is_palindrome(&quot;racecar&quot;) {
+    stdout.write_line(&quot;racecar is a palindrome!&quot;);
+}
+
+if is_palindrome(&quot;nope&quot;) {
+    stdout.write_line(&quot;nope is a palindrome!&quot;);
+}
+</code></pre>
 
                     </main>
 

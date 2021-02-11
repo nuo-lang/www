@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Types - Nuo Lang</title>
+        <title>Functions - Nuo Lang</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html" class="active"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">3.</strong> Functions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Nuo Lang</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types</a></li><li class="chapter-item expanded "><a href="functions.html" class="active"><strong aria-hidden="true">3.</strong> Functions</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,54 +163,76 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#types" id="types">Types</a></h1>
-<h2><a class="header" href="#declarations" id="declarations">Declarations</a></h2>
-<p>You must first declare a variable or constant before it can be used or reassigned.</p>
-<h3><a class="header" href="#declaring-constants" id="declaring-constants">Declaring constants</a></h3>
-<pre><code>const name = &quot;Bob&quot;;
-var age = 42;
-var is_happy = true;
-</code></pre>
-<h3><a class="header" href="#declaring-variables" id="declaring-variables">Declaring variables</a></h3>
-<pre><code>var name = &quot;Bob&quot;;
-var age = 42;
-var is_happy = true;
-</code></pre>
-<h3><a class="header" href="#constants-vs-variables" id="constants-vs-variables">Constants vs. Variables</a></h3>
-<p>Variables can be reassigned new values, whereas constants cannot. If you aren't sure, use a constant.</p>
-<h3><a class="header" href="#type-inference" id="type-inference">Type Inference</a></h3>
-<p>The compiler will try to guess the type of your declaration. If you want to be explicit, specify a type:</p>
-<pre><code>// guessed to be u64... if a subtraction later occurs, i64
-var age = 42;
+                        <h1><a class="header" href="#functions" id="functions">Functions</a></h1>
+<p>Functions are like snippets of code. We provide many with Nuo, and you can find more online.</p>
+<h2><a class="header" href="#example" id="example">Example</a></h2>
+<pre><code>// this example &quot;calls&quot; the &quot;stdout.write_line&quot; function
+// it passes one input - a string to show in the console
 
-// explicitly enforced as u64
-var age: u64 = 42;
+stdout.write_line(&quot;Hello, world! 👋 🌎&quot;);
 </code></pre>
-<p>It's currently undecided if constants are also immutable. There's a subtle difference.</p>
-<h2><a class="header" href="#primitive-types" id="primitive-types">Primitive Types</a></h2>
-<p>Nuo's primitive types are:</p>
-<table><thead><tr><th>Type</th><th>Description</th><th>Examples</th></tr></thead><tbody>
-<tr><td><code>bool</code></td><td><code>true</code> or <code>false</code>.</td><td><code>true</code>, <code>false</code></td></tr>
-<tr><td><code>u64</code></td><td>64-bit unsigned integer. Can only represent positive numbers.</td><td>10, 100, 0 (min), 18446744073709551615 (max)</td></tr>
-<tr><td><code>i64</code></td><td>64-bit integer. Can be positive or negative.</td><td>10, 100, -40, 0, -9223372036854775807 (min), 9223372036854775807 (max)</td></tr>
-<tr><td><code>string</code></td><td>Text (represented as UTF-8)</td><td>&quot;hi&quot;, &quot;Hello&quot;, &quot;Emojis are good too 👌&quot;</td></tr>
-</tbody></table>
-<p>All primitive types are immutable.</p>
+<h2><a class="header" href="#inputs-and-outputs" id="inputs-and-outputs">Inputs and Outputs</a></h2>
+<p>Functions can take inputs and return outputs.</p>
+<pre><code>// &quot;string.reverse&quot; takes one input (a string), and returns one output (another string)
+// in this example, we assign the output to a constant called &quot;result&quot;
+
+const result = string.reverse(&quot;racecar!&quot;);
+// -&gt; &quot;!racecar&quot;
+
+stdout.write_line(result);
+</code></pre>
+<h2><a class="header" href="#declaring-functions" id="declaring-functions">Declaring Functions</a></h2>
+<p>You can declare your own functions.</p>
+<pre><code>// the &quot;sayHi&quot; function takes no inputs and returns no outputs
+
+const sayHi = () =&gt; {
+    stdout.write_line(&quot;Hello!&quot;);
+};
+
+// say &quot;hi&quot; three times
+
+sayHi();
+sayHi();
+sayHi();
+
+// the &quot;meet&quot; function takes one input (a string for the &quot;name&quot;) and returns no outputs
+
+const meet = (name: string) =&gt; {
+    const message = `Hello, {name}!`; // this is called a template string. we will go over this later.
+    stdout.write_line(message);
+};
+
+// meet a few people
+
+meet(&quot;Alice&quot;);
+meet(&quot;Bob&quot;);
+meet(&quot;Sally&quot;);
+
+// the &quot;is_palindrome&quot; function takes one input (a string) and returns one output (a boolean), which will be &quot;true&quot; if the input string is a palindrome
+
+const is_palindrome = (text: string): bool =&gt; {
+    return text == string.reverse(text);
+};
+
+if is_palindrome(&quot;racecar&quot;) {
+    stdout.write_line(&quot;racecar is a palindrome!&quot;);
+}
+
+if is_palindrome(&quot;nope&quot;) {
+    stdout.write_line(&quot;nope is a palindrome!&quot;);
+}
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="functions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -220,15 +242,11 @@ var age: u64 = 42;
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a rel="next" href="functions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
