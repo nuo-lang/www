@@ -7,3 +7,4 @@
 - [Functions](functions.md)
 - [enum](enum.md)
 - [struct](struct.md)
+- [Modules](modules.md)
