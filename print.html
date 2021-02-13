@@ -353,11 +353,11 @@ if is_palindrome(&quot;nope&quot;) {
 }
 </code></pre>
 <h1><a class="header" href="#enum" id="enum">enum</a></h1>
-<pre><code>enum Emotion {
+<pre><code>type Emotion = enum [
     Happy,
     Sad,
     Excited,
-}
+]
 
 var howIFeel = Emotion.Sad;
 
@@ -371,7 +371,6 @@ if howIFeel == Emotion.Sad {
 if howIFeel == Emotion.Happy {
     stdout.write_line(&quot;I feel great!&quot;);
 }
-
 </code></pre>
 <h1><a class="header" href="#struct" id="struct">struct</a></h1>
 <h2><a class="header" href="#declare" id="declare">Declare</a></h2>

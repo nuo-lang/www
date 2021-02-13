@@ -164,11 +164,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#enum" id="enum">enum</a></h1>
-<pre><code>enum Emotion {
+<pre><code>type Emotion = enum [
     Happy,
     Sad,
     Excited,
-}
+]
 
 var howIFeel = Emotion.Sad;
 
@@ -182,7 +182,6 @@ if howIFeel == Emotion.Sad {
 if howIFeel == Emotion.Happy {
     stdout.write_line(&quot;I feel great!&quot;);
 }
-
 </code></pre>
 
                     </main>
