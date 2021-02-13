@@ -1,11 +1,11 @@
 # enum
 
 ```
-enum Emotion {
+type Emotion = enum [
     Happy,
     Sad,
     Excited,
-}
+]
 
 var howIFeel = Emotion.Sad;
 
@@ -19,5 +19,4 @@ if howIFeel == Emotion.Sad {
 if howIFeel == Emotion.Happy {
     stdout.write_line("I feel great!");
 }
-
 ```
